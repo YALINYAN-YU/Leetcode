@@ -1,0 +1,8 @@
+rank()和partition by用法
+举例 database_184
+with temp2 as(
+select id, name, salary, department, RANK() over (partition by department order by salary desc) sal_rank 
+from temp1)
+
+rank()用法：rank() over (order by SALARY desc) sal_rank
+rank 和 partition by 用法结合， 即：rank() over (partition by DEPARTMENT order by salary desc) sal_rank ， 注意partition by 和 order by之间没有逗号
